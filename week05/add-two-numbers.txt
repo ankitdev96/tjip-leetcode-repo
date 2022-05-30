@@ -1,0 +1,59 @@
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode* ans = new ListNode(0);
+        
+        ListNode *current = ans;
+        ListNode *p = l1;
+        ListNode *q = l2;
+
+        
+        int carry  = 0;
+        int a,b;
+        
+        while(p != NULL || q != NULL){
+            if(p != NULL){
+                 a = p->val;
+            }
+            else{
+                a = 0;
+            }
+            if(q != NULL){
+                 b = q->val;
+            }
+            else{
+                b = 0;
+            }
+            
+            int sum = carry + a + b;
+           
+            carry = sum/10;
+            
+            current->next = new ListNode(sum%10);
+            
+            current = current->next;
+             cout << current->val;
+            if(p != NULL) p = p->next;
+            if(q != NULL) q = q->next;
+          
+            
+
+            
+            
+            
+            
+        }
+        
+          
+            if(carry > 0){
+                current->next = new ListNode(carry);
+            }
+        
+        
+            
+        
+        return ans->next;
+        
+        
+    }
+};
